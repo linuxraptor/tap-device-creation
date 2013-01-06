@@ -5,7 +5,7 @@ it automatically.
 I wrote this to be a direct "drop-in" replacement for the Gentoo 
 Openvpn init script's tun/tap module checking. This script has better
 error handling and will actually attempt to create the device if
-one does not already exist before reporting a filure. For those
+one does not already exist before reporting a failure. For those
 with kernels that support virtualization of some kind, the tun
 module is often not loaded on boot (even though it is supposed to)
 so this script should insert and create the module correctly.
