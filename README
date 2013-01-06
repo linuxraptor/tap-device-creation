@@ -2,5 +2,19 @@ This creates a TUN/TAP device for your troublesome Linux distro
 when you can't get your VPN or Virtualization drivers to do
 it automatically.
 
+I wrote this to be a direct "drop-in" replacement for the Gentoo 
+Openvpn init script's tun/tap module checking. This script has better
+error handling and will actually attempt to create the device if
+one does not already exist before reporting a filure. For those
+with kernels that support virtualization of some kind, the tun
+module is often not loaded on boot (even though it is supposed to)
+so this script should insert and create the module correctly.
+
+You can optionally paste it in your init script to run before the
+original script's tun handling, it will not interfere with any
+code that is already there. Just make sure to paste it after the
+"dependencies" section and before the "tun/tap" section.
+
 TODO:
-Check for kernel TUN modular or statically linked driver availability using /proc.
+-Check for kernel TUN modular or statically linked driver availability using /proc.
+	Init script already has a basic way of doing this.
