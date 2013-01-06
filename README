@@ -1,0 +1,6 @@
+This creates a TUN/TAP device for your troublesome Linux distro
+when you can't get your VPN or Virtualization drivers to do
+it automatically.
+
+TODO:
+Support for modloaded TAP driver. (Not staticaly linked)
