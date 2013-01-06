@@ -3,4 +3,4 @@ when you can't get your VPN or Virtualization drivers to do
 it automatically.
 
 TODO:
-Support for modloaded TAP driver. (Not staticaly linked)
+Check for kernel TUN modular or statically linked driver availability using /proc.

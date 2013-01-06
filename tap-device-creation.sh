@@ -17,6 +17,7 @@
 if [[ ! -a /dev/net/tun  ]]
 then
 	echo "WARNING: TUN/TAP device missing."
+	modprobe tun > /dev/null 2>&1
 	mkdir /dev/net > /dev/null 2>&1
 	mknod /dev/net/tun c 10 200
 	chmod 0700 /dev/net/tun;
@@ -30,7 +31,9 @@ else
         then
 		echo "TUN/TAP permissions incompatible, rebuilding device."
                 rm -f /dev/net/tun
-                mkdir /dev/net > /dev/null 2>&1
+                rmmod tun > /dev/null 2>&1
+		modprobe tun > /dev/null 2>&1
+		mkdir /dev/net > /dev/null 2>&1
                 mknod /dev/net/tun c 10 200
                 chmod 0700 /dev/net/tun
                 if [[ ! $(stat --printf=%a /dev/net/tun) == 700 ]]
